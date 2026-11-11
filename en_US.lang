@@ -1,0 +1,372 @@
+﻿#種類がある木材系
+itemGroup.name.log=hra thoex
+tile.log.oak.name=sjan nyaahr hra thoex
+
+itemGroup.name.wood=zja gxu
+tile.wood.oak.name=sjan nyaahr zja gxu
+
+itemGroup.name.planks=hra fiim
+tile.planks.name=hra fiim
+tile.planks.oak.name=sjan nyaahr hra fiim
+
+itemGroup.name.leaves=zjoe hrih
+tile.leaves.name=zjoe hrih
+tile.leaves.oak.name=sjan nyaahr zjoe hrih
+
+itemGroup.name.sapling=zja gxu-nyunyu
+tile.sapling.oak.name=sjan nyaahr zja gxu-nyunyu
+
+itemGroup.name.pressurePlate=hra foeoeny-midho: hra froeoexa
+tile.wooden_pressure_plate.name=sjan nyaahr hra foeoeny-midho: hra froeoexa
+tile.spruce_pressure_plate.name=sjan oedh hra foeoeny-midho: hra froeoexa
+tile.wooden_pressure_plate.name=sjan nyaahr hra foeoeny-midho: hra froeoexa
+tile.wooden_pressure_plate.name=sjan nyaahr hra foeoeny-midho: hra froeoexa
+tile.wooden_pressure_plate.name=sjan nyaahr hra foeoeny-midho: hra froeoexa
+
+itemGroup.name.button=hra thoewa
+tile.wooden_button.name=sjan nyaahr hra thoewa
+tile.spruce_button.name=sjan oedh hra thoewa
+tile.wooden_button.name=sjan nyaahr hra thoewa
+tile.wooden_button.name=sjan nyaahr hra thoewa
+tile.wooden_button.name=sjan nyaahr hra thoewa
+
+itemGroup.name.boat=ha zjoowa
+item.boat.oak.name=sjan nyaahr ha zjoowa
+item.boat.spruce.name=sjan oedh ha zjoowa
+item.boat.oak.name=sjan nyaahr ha zjoowa
+item.boat.oak.name=sjan nyaahr ha zjoowa
+item.boat.oak.name=sjan nyaahr ha zjoowa
+
+itemGroup.name.chestboat=ha zjoowa hru nyi hon
+item.chest_boat.oak.name=sjan nyaahr ha zjoowa hru nyi hon
+item.chest_boat.spruce.name=sjan oedh ha zjoowa hru nyi hon
+item.chest_boat.oak.name=sjan nyaahr ha zjoowa hru nyi hon
+item.chest_boat.oak.name=sjan nyaahr ha zjoowa hru nyi hon
+item.chest_boat.oak.name=sjan nyaahr ha zjoowa hru nyi hon
+
+itemGroup.name.trapdoor=hra hira-nyu
+tile.trapdoor.name=sjan nyaahr hra hira-nyu
+tile.spruce_trapdoor.name=sjan oedh hra hira-nyu
+tile.trapdoor.name=sjan nyaahr hra hira-nyu
+tile.trapdoor.name=sjan nyaahr hra hira-nyu
+tile.trapdoor.name=sjan nyaahr hra hira-nyu
+
+itemGroup.name.door=hra hira
+item.wooden_door.name=sjan nyaahr hra hira
+item.spruce_door.name=sjan oedh hra hira
+item.wooden_door.name=sjan nyaahr hra hira
+item.wooden_door.name=sjan nyaahr hra hira
+item.wooden_door.name=sjan nyaahr hra hira
+
+itemGroup.name.fence=hra foenth
+tile.fence.name=sjan nyaahr hra foenth
+tile.spruceFence.name=sjan oedh hra foenth
+tile.fence.name=sjan nyaahr hra foenth
+tile.fence.name=sjan nyaahr hra foenth
+tile.fence.name=sjan nyaahr hra foenth
+
+itemGroup.name.fenceGate=ran foenth hra hira
+tile.fence_gate.name=sjan nyaahr ran foenth hra hira
+tile.spruce_fence_gate.name=sjan oedh ran foenth hra hira
+tile.fence_gate.name=sjan nyaahr ran foenth hra hira
+tile.fence_gate.name=sjan nyaahr ran foenth hra hira
+tile.fence_gate.name=sjan nyaahr ran foenth hra hira
+
+itemGroup.name.stairs=hra fortha
+tile.oak_stairs.name=sjan nyaahr hra fortha
+tile.spruce_stairs.name=sjan oedh hra fortha
+tile.oak_stairs.name=sjan nyaahr hra fortha
+tile.oak_stairs.name=sjan nyaahr hra fortha
+tile.oak_stairs.name=sjan nyaahr hra fortha
+
+itemGroup.name.slab=hra i
+tile.wooden_slab.oak.name=sjan nyaahr hra i
+tile.spruce_slab.oak.name=sjan oedh hra i
+tile.wooden_slab.oak.name=sjan nyaahr hra i
+tile.wooden_slab.oak.name=sjan nyaahr hra i
+tile.wooden_slab.oak.name=sjan nyaahr hra i
+
+itemGroup.name.sign=ran nyiwoe hra foeoeny
+item.sign.name=sjan nyaahr ran nyiwoe hra foeoeny
+item.spruce_standing_sign.name=sjan oedh ran nyiwoe hra foeoeny
+item.sign.name=sjan nyaahr ran nyiwoe hra foeoeny
+item.sign.name=sjan nyaahr ran nyiwoe hra foeoeny
+item.sign.name=sjan nyaahr ran nyiwoe hra foeoeny
+
+itemGroup.name.hanging_sign=ran nyiwoe hra foeoeny-wumridh
+item.oak_hanging_sign.name=sjan nyaahr ran nyiwoe hra foeoeny-wumridh
+item.spruce_hanging_sign.name=sjan oedh ran nyiwoe hra foeoeny-wumridh
+item.oak_hanging_sign.name=sjan nyaahr ran nyiwoe hra foeoeny-wumridh
+item.oak_hanging_sign.name=sjan nyaahr ran nyiwoe hra foeoeny-wumridh
+item.oak_hanging_sign.name=sjan nyaahr ran nyiwoe hra foeoeny-wumridh
+
+#アイテム系
+item.stick.name=hra gxu-nyu
+
+itemGroup.name.pickaxe=ha rithno
+item.wooden_pickaxe.name=sjan gxu ha rithno
+item.stone_pickaxe.name=ran xi ha rithno
+item.iron_pickaxe.name=ran gxidh ha rithno
+itemGroup.name.axe=ha zjathu
+item.wooden_axe.name=sjan gxu ha zjathu
+item.stone_axe.name=ran xi ha zjathu
+item.iron_axe.name=ran gxidh ha zjathu
+itemGroup.name.shovel=ha hooh
+item.wooden_shovel.name=sjan gxu ha hooh
+item.stone_shovel.name=ran xi ha hooh
+item.iron_shovel.name=ran gxidh ha hooh
+itemGroup.name.hoe=ha xwa
+item.wooden_hoe.name=sjan gxu ha xwa
+item.stone_hoe.name=ran xi ha xwa
+item.iron_hoe.name=ran gxidh ha xwa
+itemGroup.name.sword=ha hruuth
+item.wooden_sword.name=sjan gxu ha hruuth
+item.stone_sword.name=ran xi ha hruuth
+item.iron_sword.name=ran gxidh ha hruuth
+itemGroup.name.spear=ha hruuth-fihr
+item.wooden_spear.name=sjan gxu ha hruuth-fihr
+item.stone_spear.name=ran xi ha hruuth-fihr
+item.iron_spear.name=ran gxidh ha hruuth-fihr
+
+item.diamond_sword.name=ran xi-masjaa-xora ha hruuth
+item.diamond_pickaxe.name=ran xi-masjaa-xora ha rithno
+item.diamond_axe.name=ran xi-masjaa-xora ha zjathu
+item.diamond_shovel.name=ran xi-masjaa-xora ha hooh
+item.diamond_hoe.name=ran xi-masjaa-xora ha xwa
+item.diamond_spear.name=ran xi-masjaa-xora ha hruuth-fihr
+item.golden_sword.name=ran gxoor ha hruuth
+item.golden_pickaxe.name=ran gxoor ha rithno
+item.golden_axe.name=ran gxoor ha zjathu
+item.golden_shovel.name=ran gxoor ha hooh
+item.golden_hoe.name=ran gxoor ha xwa
+item.golden_spear.name=ran gxoor ha hruuth-fihr
+item.copper_sword.name=ran zjuth ha hruuth
+item.copper_pickaxe.name=ran zjuth ha rithno
+item.copper_axe.name=ran zjuth ha zjathu
+item.copper_shovel.name=ran zjuth ha hooh
+item.copper_hoe.name=ran zjuth ha xwa
+item.copper_spear.name=ran zjuth ha hruuth-fihr
+item.netherite_sword.name=ran foogxidh ha hruuth
+item.netherite_pickaxe.name=ran foogxidh ha rithno
+item.netherite_axe.name=ran foogxidh ha zjathu
+item.netherite_shovel.name=ran foogxidh ha hooh
+item.netherite_hoe.name=ran foogxidh ha xwa
+item.netherite_spear.name=ran foogxidh ha hruuth-fihr
+
+itemGroup.name.dye=hra nywim
+item.dyed=nywimoridh
+item.dye.black.name=イカスミ
+item.dye.blue.name=ラピスラズリ
+item.dye.brown.name=カカオ豆
+item.dye.white.name=hra ooth-agxaridh
+item.dye.black_new.name=hra nywim-zjun
+item.dye.blue_new.name=hra nywim-xora
+item.dye.red.name=hra nywim-foo
+item.dye.white_new.name=hra nywim-hiwi
+item.dye.yellow.name=hra nywim-sjoora
+item.dye.green.name=hra nywim-throeoe
+item.dye.brown_new.name=mwan rihaa ran riina hra nywim
+item.dye.lightBlue.name=ran thiix ran riina hra nywim
+item.dye.pink.name=ran rihaa ran riina hra nywim
+item.dye.lime.name=sjan gxu-masjaa ran riina hra nywim
+item.dye.cyan.name=ran zji ran riina hra nywim
+item.dye.gray.name=ran xi ran riina hra nywim
+item.dye.magenta.name=ran oer-hiwi ran riina hra nywim
+item.dye.orange.name=mwan inywoe ran riina hra nywim
+item.dye.purple.name=ran oer ran riina hra nywim
+item.dye.silver.name=ran xi-hiwi ran riina hra nywim
+
+item.bundle=ha nywon
+item.black_bundle=ha nywon-zjun
+item.white_bundle=ha nywon-hiwi
+item.red_bundle=ha nywon-foo
+item.yellow_bundle=ha nywon-sjoora
+item.green_bundle=ha nywon-throeoe
+item.orange_bundle=mwan inywoe ha nywon
+item.lime_bundle=sjan gxu-masjaa ha nywon
+item.brown_bundle=mwan rihaa ha nywon
+item.light_gray_bundle=ran xi-hiwi ha nywon
+item.blue_bundle=ha nywon-xora
+item.light_blue_bundle=ran thiix ha nywon
+item.gray_bundle=ran xi ha nywon
+item.pink_bundle=ran rihaa ha nywon
+item.magenta_bundle=ran oer-hiwi ha nywon
+item.purple_bundle=ran oer ha nywon
+item.cyan_bundle=ran zji ha nywon
+
+item.coal.name=ran foo hra xi
+item.charcoal.name=sjan gxu ran foo hra xi
+
+item.sugar.name=hra thora-masjaa
+item.paper.name=hra xanxi
+item.gunpowder.name=ran foo hra thora
+
+item.copper_ingot.name=hra zjuth
+tile.copper_block.name=ran zjuth hra o
+item.netherite_ingot.name=hra foogxidh
+item.netherite_scrap.name=hra foogxidh-nyu
+item.iron_nugget.name=hra gxidh-nyu
+item.iron_ingot.name=hra gxidh
+tile.iron_block.name=ran gxidh hra o
+item.gold_nugget.name=hra gxoor-nyu
+item.gold_ingot.name=hra gxoor
+tile.gold_block.name=ran gxoor hra o
+
+item.bucket.name=ran gxith ha nywon-waha
+item.bucketLava.name=ran gxith ha nywon ran nyi foo hru wima
+item.bucketWater.name=ran gxith ha nywon hru nyi wima
+item.glass_bottle.name=ran gxrath ha hon-waha
+potion.emptyPotion.name=ran gxrath ha hon mu nyi wima
+
+item.bundle=ha nywon
+itemGroup.name.bundles=ha nywon
+item.name_tag.name=ran nyiwoe ha xanxi
+
+item.feather.name=hra oef
+
+entity.armor_stand.name=hra ihmi
+item.armor_stand.name=hra ihmi
+
+#ブロック系
+tile.ice.name=hra thiix
+tile.packed_ice.name=hra thiix-woho
+tile.blue_ice.name=hra thiix-xora
+tile.frosted_ice.name=hra thiix-waha
+
+tile.stone.stone.name=hra xi
+tile.cobblestone.name=hroe xi-nyun
+
+tile.sand.default.name=hra thora
+tile.sand.name=hra thora
+itemGroup.name.sandstone=ran thora hra xi
+tile.sandstone.default.name=ran thora hra xi
+tile.sandstone.name=ran thora hra xi
+tile.gravel.name=ran xi hra thora
+tile.dirt.coarse.name=ran niwa hra o ran nyi xi hru thora
+tile.dirt.default.name=ran niwa hra o
+tile.dirt.name=ran niwa hra o
+tile.grass.name=sjan xaa hra o
+tile.podzol.name=mwan rihaa ran riina sjan xaa hra o
+
+cauldronScreen.header=ran gxith hra hon
+item.cauldron.name=ran gxith hra hon
+tile.cauldron.name=ran gxith hra hon
+
+itemGroup.name.glass=hra gxrath
+tile.glass.name=hra gxrath
+itemGroup.name.glassPane=ガラス板
+tile.glass_pane.name=ガラス板
+
+tile.reeds.name=zja gxu-masjaa
+item.reeds.name=zja gxu-masjaa
+
+tile.fire.name=hra foo
+
+tile.wool.name=hra oef
+tile.wool.black.name=hra oef-zjun
+tile.wool.blue.name=hra oef-xora
+tile.wool.red.name=hra oef-foo
+tile.wool.white.name=hra oef-hiwi
+tile.wool.yellow.name=hra oef-sjoora
+tile.wool.green.name=hra oef-throeoe
+
+###水色: 氷の色
+###桃色: 生肉の色
+###茶色: 肉の色
+###黄緑色: サトウキビの色
+###灰色: 石の色
+###薄灰色: 白い石の色
+###橙色: にんじんの色
+###紫色: 夜の色
+###赤紫色: 白い夜の色
+###青緑色: 海の色
+tile.wool.lightBlue.name=ran thiix ran riina hra oef
+tile.wool.pink.name=ran rihaa ran riina hra oef
+tile.wool.brown.name=mwan rihaa ran riina hra oef
+tile.wool.lime.name=sjan gxu-masjaa ran riina hra oef
+tile.wool.orange.name=mwan inywoe ran riina hra oef
+tile.wool.gray.name=ran xi ran riina hra oef
+tile.wool.cyan.name=ran zji ran riina hra oef
+tile.wool.magenta.name=ran oer-hiwi ran riina hra oef
+tile.wool.purple.name=ran oer ran riina hra oef
+tile.wool.silver.name=ran xi-hiwi ran riina hra oef
+
+#機能ブロック系
+container.crafting=hra foeoeny-gxamdhoo
+tile.crafting_table.name=hra foeoeny-gxamdhoo
+container.furnace=hra foeoeny-foodhoo
+furnaceScreen.header=hra foeoeny-foodhoo
+tile.furnace.name=hra foeoeny-foodhoo
+
+tile.stone_button.name=ran xi hra thoewa
+tile.wooden_button.name=sjan nyaahr hra thoewa
+
+itemGroup.name.chest=hra hon
+tile.chest.name=hra hon
+chestScreen.header.large=hra hon-won
+chestScreen.header.small=hra hon
+container.chestCopper=ran zjuth hra hon
+container.chestDoubleCopper=ran zjuth hra hon-won
+tile.copper_chest.name=ran zjuth hra hon
+tile.exposed_copper_chest.name=風化した銅のチェスト
+tile.weathered_copper_chest.name=錆びた銅のチェスト
+tile.oxidized_copper_chest.name=酸化した銅のチェスト
+tile.waxed_copper_chest.name=錆止めされた銅のチェスト
+tile.waxed_exposed_copper_chest.name=錆止めされた風化した銅のチェスト
+tile.waxed_weathered_copper_chest.name=錆止めされた錆びた銅のチェスト
+tile.waxed_oxidized_copper_chest.name=錆止めされた酸化した銅のチェスト
+
+#食い物系
+item.apple.name=sjan gxu mwa minth
+
+entity.egg.name=mwa sjuu
+item.egg.name=mwa sjuu
+
+item.beef.name=than raahr hra rihaa
+item.steak.name=than raahr mwa rihaa
+item.cooked_beef.name=than raahr mwa rihaa
+item.muttonRaw.name=than nyim hra rihaa
+item.muttonCooked.name=than nyim mwa rihaa
+item.chicken.name=than xoxo hra rihaa
+item.cooked_chicken.name=than xoxo mwa rihaa
+item.porkchop.name=than sjiihr hra rihaa
+item.cooked_porkchop.name=than sjiihr mwa rihaa
+item.rabbit.name=than homfa hra rihaa
+item.cooked_rabbit.name=than homfa mwa rihaa
+itemGroup.name.rawFood=hra moe
+itemGroup.name.cookedFood=mwa moe
+itemGroup.name.miscFood=食べ物 (その他)
+
+item.carrot.name=mwa inywoe
+tile.carrots.name=mwa inywoe
+item.golden_carrot.name=ran gxoor mwa inywoe
+item.carrotOnAStick.name=hra gxu-nyu mu nyi inywoe
+
+#エンティティ系
+entity.pig.name=dha sjiihr
+item.spawn_egg.entity.pig.name=hra sjuu-gxamdhoo: dha sjiihr
+entity.chicken.name=dha xoxo
+item.spawn_egg.entity.chicken.name=hra sjuu-gxamdhoo: dha xoxo
+
+#UI系
+item.bundle.empty=waha
+item.bundle.empty.description=thany nya: nywidha: hroe aithoem hu fo nywon.
+item.bundle.full=woho
+item.bundle.fullness=残り %s
+
+chestScreen.header.player=hra infoenthi
+craftingScreen.tab.survival=hra infoenthi
+container.inventory=hra infoenthi
+
+craftingScreen.tab.items=hra aithoem
+entity.item.name=hra aithoem
+craftingScreen.tab.search.filter=hra aithoem-thadh: gxamdha
+
+recipeToast.newUnlock.title=新しいレシピがアンロックされました!
+recipeToast.newUnlock.moreRecipes= その他のレシピ
+recipeToast.newUnlock.tts= 新しいレシピがアンロックされました
+recipeToast.newUnlock.descriptionRecipeBook=レシピ本を確認する
+recipeToast.newUnlock.descriptionCraftingTable=作業台で見る
+recipeToast.newUnlock.descriptionStonecutterTable=石切台で見る
+recipeToast.newUnlock.descriptionSmithingTable=鍛冶台で見る
+recipeToast.newUnlock.descriptionCartographyTable=製図台で見る

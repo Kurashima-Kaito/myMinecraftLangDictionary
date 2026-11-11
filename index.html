@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minecraft .lang 翻訳辞書ビューア</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Warm White & Muted / Deep Orange Theme */
+      --bg-body: #f8f6f2;
+      --bg-panel: #ffffff;
+      --bg-panel-subtle: #fbfaf8;
+      --bg-input: #ffffff;
+      --border-color: #e5dfd7;
+      --border-dark: #cfc7bc;
+      --border-focus: #c85a17;
+
+      /* Accents: Muted & Deep Orange */
+      --orange-deep: #b8521a;
+      --orange-main: #c85a17;
+      --orange-muted: #d97438;
+      --orange-light: #fef4ee;
+      --orange-chip: #faede4;
+      --orange-border: #f0cbb5;
+      
+      /* Typography */
+      --text-main: #2d2621;
+      --text-muted: #7c7269;
+      --text-subtle: #a69c93;
+      --text-code: #8e3c0d;
+
+      --highlight-bg: #ffe4b5;
+      --highlight-text: #803300;
+      
+      --font-ui: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-mono: 'Fira Code', Consolas, "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--bg-panel);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 2px 8px rgba(45, 38, 33, 0.04);
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      background: var(--orange-main);
+      border: 1px solid var(--orange-deep);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #fff;
+      box-shadow: 0 2px 5px rgba(200, 90, 23, 0.25);
+    }
+
+    .brand h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+    }
+
+    .file-status-badge {
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      background: var(--orange-light);
+      border: 1px solid var(--orange-border);
+      color: var(--orange-deep);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 500;
+    }
+
+    .file-status-badge.error {
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: #b91c1c;
+    }
+
+    .file-status-badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-panel);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .btn:hover {
+      background-color: var(--bg-body);
+      border-color: var(--border-dark);
+      color: var(--orange-deep);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* Drop Zone Banner */
+    .drop-banner {
+      display: none;
+      border: 2px dashed var(--orange-border);
+      background: var(--orange-light);
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      color: var(--orange-deep);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .drop-banner.dragover {
+      border-color: var(--orange-deep);
+      background: #faede4;
+    }
+
+    .drop-banner.visible {
+      display: block;
+    }
+
+    /* Controls Panel */
+    .controls-card {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      box-shadow: 0 2px 10px rgba(45, 38, 33, 0.03);
+    }
+
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .search-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .search-box-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.85rem;
+      color: var(--text-subtle);
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.65rem 2.4rem 0.65rem 2.4rem;
+      background-color: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-main);
+      font-size: 0.92rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .search-input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(200, 90, 23, 0.12);
+    }
+
+    .clear-search-btn {
+      position: absolute;
+      right: 0.6rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      display: none;
+    }
+
+    .clear-search-btn:hover {
+      color: var(--orange-main);
+    }
+
+    .select-dropdown {
+      background-color: var(--bg-input);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-main);
+      font-size: 0.85rem;
+      padding: 0.65rem 0.9rem;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+
+    .select-dropdown:focus {
+      border-color: var(--border-focus);
+    }
+
+    /* Collapsible Phoneme Matrix Filter Section */
+    .phoneme-details {
+      background-color: var(--bg-panel-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.15s;
+    }
+
+    .phoneme-details[open] {
+      border-color: var(--orange-border);
+    }
+
+    .phoneme-summary {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      list-style: none;
+      transition: background-color 0.15s;
+    }
+
+    .phoneme-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .phoneme-summary:hover {
+      background-color: var(--orange-light);
+    }
+
+    .phoneme-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--orange-deep);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .phoneme-title-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: var(--orange-chip);
+      color: var(--orange-deep);
+      border: 1px solid var(--orange-border);
+      padding: 0.1rem 0.45rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+    }
+
+    .phoneme-toggle-indicator {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      transition: transform 0.2s ease;
+    }
+
+    .phoneme-details[open] .phoneme-toggle-indicator {
+      transform: rotate(180deg);
+    }
+
+    .phoneme-content {
+      padding: 0.6rem 1rem 0.9rem 1rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .phoneme-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.78rem;
+    }
+
+    .phoneme-mode-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      user-select: none;
+      font-weight: 500;
+    }
+
+    .phoneme-mode-toggle input {
+      accent-color: var(--orange-main);
+      cursor: pointer;
+    }
+
+    .phoneme-clear-btn {
+      background: none;
+      border: 1px solid var(--border-color);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .phoneme-clear-btn:hover {
+      border-color: var(--orange-main);
+      color: var(--orange-main);
+    }
+
+    .phoneme-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.4rem;
+      max-width: 600px;
+    }
+
+    @media (max-width: 600px) {
+      .phoneme-grid {
+        max-width: 100%;
+      }
+    }
+
+    .phoneme-btn {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 5px;
+      padding: 0.45rem 0.2rem;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .phoneme-btn:hover {
+      border-color: var(--orange-muted);
+      background-color: var(--orange-light);
+      color: var(--orange-deep);
+    }
+
+    .phoneme-btn.active {
+      background-color: var(--orange-main);
+      border-color: var(--orange-deep);
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 1px 4px rgba(200, 90, 23, 0.3);
+    }
+
+    /* Filter chips & stats */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .chips-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      align-items: center;
+    }
+
+    .chip-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-right: 0.2rem;
+    }
+
+    .chip {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+
+    .chip:hover {
+      color: var(--orange-main);
+      border-color: var(--orange-muted);
+    }
+
+    .chip.active {
+      background-color: var(--orange-light);
+      border-color: var(--orange-main);
+      color: var(--orange-deep);
+      font-weight: 600;
+    }
+
+    .stats-and-page-size {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .count-highlight {
+      color: var(--orange-deep);
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+
+    /* Table */
+    .table-container {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      overflow-x: auto;
+      box-shadow: 0 2px 10px rgba(45, 38, 33, 0.03);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    thead {
+      background-color: var(--bg-panel-subtle);
+      border-bottom: 1.5px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    th {
+      padding: 0.8rem 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    th.sortable {
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+
+    th.sortable:hover {
+      color: var(--orange-main);
+    }
+
+    th.sort-active {
+      color: var(--orange-deep);
+    }
+
+    .sort-indicator {
+      display: inline-block;
+      margin-left: 0.3rem;
+      font-size: 0.75rem;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color 0.1s;
+    }
+
+    tbody tr:hover {
+      background-color: #fcf9f5;
+    }
+
+    td {
+      padding: 0.75rem 1rem;
+      vertical-align: top;
+    }
+
+    .col-idx {
+      width: 48px;
+      color: var(--text-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-align: center;
+      padding-top: 0.85rem;
+    }
+
+    .col-key {
+      width: 26%;
+      word-break: break-all;
+    }
+
+    .key-text {
+      font-family: var(--font-mono);
+      color: var(--text-code);
+      font-size: 0.84rem;
+      display: block;
+    }
+
+    .col-val {
+      width: 42%;
+      color: var(--text-main);
+      word-break: break-all;
+      font-weight: 500;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .col-ja {
+      width: 28%;
+      color: var(--text-muted);
+      word-break: break-all;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .col-ja.empty {
+      color: var(--text-subtle);
+      font-style: italic;
+    }
+
+    /* Highlight */
+    mark {
+      background: var(--highlight-bg);
+      color: var(--highlight-text);
+      border-radius: 2px;
+      padding: 0 2px;
+      font-weight: 600;
+    }
+
+    /* Empty state */
+    .empty-state {
+      padding: 3.5rem 2rem;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .empty-state-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.4;
+    }
+
+    /* Pagination */
+    .pagination-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.25rem;
+    }
+
+    .page-buttons {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .page-btn {
+      min-width: 32px;
+      height: 32px;
+      padding: 0 0.45rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      transition: all 0.15s;
+    }
+
+    .page-btn:hover:not(:disabled) {
+      background-color: var(--bg-body);
+      border-color: var(--orange-main);
+      color: var(--orange-deep);
+    }
+
+    .page-btn.active {
+      background-color: var(--orange-main);
+      border-color: var(--orange-deep);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .page-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--border-color);
+      padding: 1.25rem 2rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-subtle);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon">⛏</div>
+        <div>
+          <h1>Minecraft .lang 翻訳辞書</h1>
+        </div>
+        <span id="fileStatus" class="file-status-badge">読み込み待機中...</span>
+      </div>
+
+      <div class="header-actions">
+        <input type="file" id="fileInput" multiple accept=".lang,.txt" style="display: none;">
+        <button class="btn" onclick="document.getElementById('fileInput').click()">
+          📁 ファイルを開く
+        </button>
+        <button class="btn" id="reloadBtn" title="en_US.lang と ja_JP.lang を再読込">
+          🔄 再読込
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Drop Banner -->
+    <div id="dropBanner" class="drop-banner">
+      ここに <code>.lang</code> ファイルをドラッグ＆ドロップ、またはクリックして手動選択してください
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-card">
+      <!-- Search Row -->
+      <div class="search-row">
+        <div class="search-box-wrapper">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="キー名、訳文、日本語訳でリアルタイム検索..."
+            autocomplete="off"
+            spellcheck="false"
+          >
+          <button id="clearSearchBtn" class="clear-search-btn" title="クリア">✕</button>
+        </div>
+
+        <select id="searchTarget" class="select-dropdown" title="検索対象">
+          <option value="all">全項目（キー ＋ 訳文 ＋ 日本語）</option>
+          <option value="key">翻訳キーのみ</option>
+          <option value="value">訳文（架空言語）のみ</option>
+          <option value="ja">日本語訳のみ</option>
+        </select>
+
+        <select id="sortSelect" class="select-dropdown" title="並び替え順">
+          <option value="orig_asc">並び替え: ファイルの元順</option>
+          <option value="key_asc">キー名: 昇順 (A → Z)</option>
+          <option value="key_desc">キー名: 降順 (Z → A)</option>
+          <option value="val_asc">訳文: 昇順 (A → Z)</option>
+          <option value="val_desc">訳文: 降順 (Z → A)</option>
+          <option value="ja_asc">日本語訳: 昇順 (あ → ん)</option>
+          <option value="ja_desc">日本語訳: 降順 (ん → あ)</option>
+          <option value="len_desc">訳文の長さ: 長い順</option>
+          <option value="len_asc">訳文の長さ: 短い順</option>
+        </select>
+      </div>
+
+      <!-- Collapsible Phoneme Matrix Filter Section -->
+      <details class="phoneme-details" id="phonemeDetails">
+        <summary class="phoneme-summary">
+          <span class="phoneme-title">
+            <span>🔤 訳文の要素フィルター</span>
+            <span id="selectedPhonemeBadge" class="phoneme-title-badge" style="display: none;">0個選択中</span>
+          </span>
+          <span class="phoneme-toggle-indicator">▼</span>
+        </summary>
+        
+        <div class="phoneme-content">
+          <div class="phoneme-controls">
+            <label class="phoneme-mode-toggle" title="複数の要素を選択したときの条件">
+              <input type="checkbox" id="phonemeMatchAll"> すべて含む
+            </label>
+            <button class="phoneme-clear-btn" id="clearPhonemesBtn">選択解除</button>
+          </div>
+          
+          <!-- 5x5 Phoneme Grid -->
+          <div class="phoneme-grid" id="phonemeGrid">
+            <!-- Row 1 -->
+            <button type="button" class="phoneme-btn" data-phoneme="dha">dha</button>
+            <button type="button" class="phoneme-btn" data-phoneme="than">than</button>
+            <button type="button" class="phoneme-btn" data-phoneme="dhoe">dhoe</button>
+            <button type="button" class="phoneme-btn" data-phoneme="thoen">thoen</button>
+            <button type="button" class="phoneme-btn" data-phoneme="dhu">dhu</button>
+            <!-- Row 2 -->
+            <button type="button" class="phoneme-btn" data-phoneme="zja">zja</button>
+            <button type="button" class="phoneme-btn" data-phoneme="sjan">sjan</button>
+            <button type="button" class="phoneme-btn" data-phoneme="zjoe">zjoe</button>
+            <button type="button" class="phoneme-btn" data-phoneme="sjoen">sjoen</button>
+            <button type="button" class="phoneme-btn" data-phoneme="zju">zju</button>
+            <!-- Row 3 -->
+            <button type="button" class="phoneme-btn" data-phoneme="mwa">mwa</button>
+            <button type="button" class="phoneme-btn" data-phoneme="mwan">mwan</button>
+            <button type="button" class="phoneme-btn" data-phoneme="mwoe">mwoe</button>
+            <button type="button" class="phoneme-btn" data-phoneme="mwoen">mwoen</button>
+            <button type="button" class="phoneme-btn" data-phoneme="mu">mu</button>
+            <!-- Row 4 -->
+            <button type="button" class="phoneme-btn" data-phoneme="ha">ha</button>
+            <button type="button" class="phoneme-btn" data-phoneme="han">han</button>
+            <button type="button" class="phoneme-btn" data-phoneme="hoe">hoe</button>
+            <button type="button" class="phoneme-btn" data-phoneme="hoen">hoen</button>
+            <button type="button" class="phoneme-btn" data-phoneme="hu">hu</button>
+            <!-- Row 5 -->
+            <button type="button" class="phoneme-btn" data-phoneme="hra">hra</button>
+            <button type="button" class="phoneme-btn" data-phoneme="ran">ran</button>
+            <button type="button" class="phoneme-btn" data-phoneme="hroe">hroe</button>
+            <button type="button" class="phoneme-btn" data-phoneme="roen">roen</button>
+            <button type="button" class="phoneme-btn" data-phoneme="hru">hru</button>
+          </div>
+        </div>
+      </details>
+
+      <!-- Filter chips & stats -->
+      <div class="filter-row">
+        <div class="chips-group" id="categoryChips">
+          <span class="chip-label">接頭辞:</span>
+          <button class="chip active" data-filter="all">すべて</button>
+          <button class="chip" data-filter="tile.">tile</button>
+          <button class="chip" data-filter="item.">item</button>
+          <button class="chip" data-filter="itemGroup.">itemGroup</button>
+          <button class="chip" data-filter="entity.">entity</button>
+          <button class="chip" data-filter="craftingScreen.">crafting</button>
+          <button class="chip" data-filter="recipeToast.">recipe</button>
+        </div>
+
+        <div class="stats-and-page-size">
+          <div>表示中: <span id="displayedCount" class="count-highlight">0</span> / 全 <span id="totalCount" class="count-highlight">0</span> 件</div>
+          <select id="pageSizeSelect" class="select-dropdown" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;">
+            <option value="50">50件 / ページ</option>
+            <option value="100" selected>100件 / ページ</option>
+            <option value="200">200件 / ページ</option>
+            <option value="all">すべて表示</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Pagination -->
+    <div class="pagination-bar" id="paginationBarTop">
+      <div class="pagination-info" style="font-size: 0.82rem; color: var(--text-muted);">
+        1 - 100 件目を表示
+      </div>
+      <div class="page-buttons pagination-buttons">
+        <!-- Pagination controls -->
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-container">
+      <table id="dictionaryTable">
+        <thead>
+          <tr>
+            <th class="col-idx">#</th>
+            <th class="col-key sortable" id="thKey">
+              翻訳キー <span class="sort-indicator" id="keySortIcon">↕</span>
+            </th>
+            <th class="col-val sortable" id="thVal">
+              訳文 <span class="sort-indicator" id="valSortIcon">↕</span>
+            </th>
+            <th class="col-ja sortable" id="thJa">
+              日本語訳 <span class="sort-indicator" id="jaSortIcon">↕</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Rows will be injected here -->
+        </tbody>
+      </table>
+      <div id="emptyState" class="empty-state" style="display: none;">
+        <div class="empty-state-icon">🔎</div>
+        <div>一致する翻訳データが見つかりませんでした</div>
+      </div>
+    </div>
+
+    <!-- Bottom Pagination -->
+    <div class="pagination-bar" id="paginationBarBottom">
+      <div class="pagination-info" style="font-size: 0.82rem; color: var(--text-muted);">
+        1 - 100 件目を表示
+      </div>
+      <div class="page-buttons pagination-buttons">
+        <!-- Pagination controls -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    Minecraft .lang Translation Dictionary Viewer
+  </footer>
+
+  <script>
+    // State management
+    const state = {
+      entries: [],            // { id, originalIndex, key, value, jaValue, section }
+      jaDict: new Map(),      // key => japanese translation
+      filtered: [],
+      currentFileName: 'en_US.lang',
+      searchTerm: '',
+      searchTarget: 'all',
+      categoryFilter: 'all',
+      selectedPhonemes: new Set(),
+      matchAllPhonemes: false,
+      sortBy: 'orig_asc',
+      currentPage: 1,
+      pageSize: 100
+    };
+
+    // DOM Elements
+    const fileStatus = document.getElementById('fileStatus');
+    const fileInput = document.getElementById('fileInput');
+    const dropBanner = document.getElementById('dropBanner');
+    const reloadBtn = document.getElementById('reloadBtn');
+    const searchInput = document.getElementById('searchInput');
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+    const searchTarget = document.getElementById('searchTarget');
+    const sortSelect = document.getElementById('sortSelect');
+    const categoryChips = document.getElementById('categoryChips');
+    const pageSizeSelect = document.getElementById('pageSizeSelect');
+    const displayedCount = document.getElementById('displayedCount');
+    const totalCount = document.getElementById('totalCount');
+    const tableBody = document.getElementById('tableBody');
+    const emptyState = document.getElementById('emptyState');
+    const paginationInfoList = document.querySelectorAll('.pagination-info');
+    const paginationButtonsList = document.querySelectorAll('.pagination-buttons');
+    const thKey = document.getElementById('thKey');
+    const thVal = document.getElementById('thVal');
+    const thJa = document.getElementById('thJa');
+    const keySortIcon = document.getElementById('keySortIcon');
+    const valSortIcon = document.getElementById('valSortIcon');
+    const jaSortIcon = document.getElementById('jaSortIcon');
+    const phonemeGrid = document.getElementById('phonemeGrid');
+    const clearPhonemesBtn = document.getElementById('clearPhonemesBtn');
+    const phonemeMatchAll = document.getElementById('phonemeMatchAll');
+    const selectedPhonemeBadge = document.getElementById('selectedPhonemeBadge');
+
+    // Parse .lang file format
+    function parseLang(content) {
+      const lines = content.split(/\r?\n/);
+      const entries = [];
+      let currentSection = '';
+      let idCounter = 1;
+
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) continue;
+
+        if (line.startsWith('#')) {
+          currentSection = line.replace(/^#\s*/, '').trim();
+          continue;
+        }
+
+        const equalIndex = line.indexOf('=');
+        if (equalIndex > 0) {
+          const key = line.slice(0, equalIndex).trim();
+          const value = line.slice(equalIndex + 1);
+          entries.push({
+            id: idCounter++,
+            originalIndex: entries.length + 1,
+            key: key,
+            value: value,
+            jaValue: state.jaDict.get(key) || '',
+            section: currentSection
+          });
+        }
+      }
+      return entries;
+    }
+
+    // Parse simple key-value dictionary for ja_JP.lang
+    function parseDictionary(content) {
+      const dict = new Map();
+      const lines = content.split(/\r?\n/);
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line || line.startsWith('#')) continue;
+        const eq = line.indexOf('=');
+        if (eq > 0) {
+          dict.set(line.slice(0, eq).trim(), line.slice(eq + 1));
+        }
+      }
+      return dict;
+    }
+
+    // Attach ja translations to existing entries
+    function attachJaTranslations() {
+      state.entries.forEach(item => {
+        item.jaValue = state.jaDict.get(item.key) || '';
+      });
+    }
+
+    // Load en_US.lang and ja_JP.lang together
+    async function loadFiles() {
+      fileStatus.textContent = '読み込み中...';
+      fileStatus.className = 'file-status-badge';
+
+      let enLoaded = false;
+      let jaLoaded = false;
+
+      // 1. Fetch ja_JP.lang
+      try {
+        const jaRes = await fetch('ja_JP.lang?t=' + Date.now());
+        if (jaRes.ok) {
+          const jaText = await jaRes.text();
+          state.jaDict = parseDictionary(jaText);
+          jaLoaded = true;
+        }
+      } catch (err) {
+        console.warn('ja_JP.lang fetch failed:', err);
+      }
+
+      // 2. Fetch en_US.lang
+      try {
+        const enRes = await fetch('en_US.lang?t=' + Date.now());
+        if (enRes.ok) {
+          const enText = await enRes.text();
+          state.currentFileName = 'en_US.lang';
+          state.entries = parseLang(enText);
+          enLoaded = true;
+        } else {
+          throw new Error(`HTTP ${enRes.status}`);
+        }
+      } catch (err) {
+        console.warn('en_US.lang fetch failed:', err);
+      }
+
+      if (enLoaded) {
+        attachJaTranslations();
+        const jaStatusText = jaLoaded ? ' + ja_JP 連携' : '';
+        fileStatus.textContent = `${state.currentFileName} (${state.entries.length}項目)${jaStatusText}`;
+        fileStatus.className = 'file-status-badge';
+        dropBanner.classList.remove('visible');
+        applyFilterAndSort();
+      } else {
+        fileStatus.textContent = '手動選択が必要';
+        fileStatus.className = 'file-status-badge error';
+        dropBanner.classList.add('visible');
+        dropBanner.innerHTML = `⚠️ <code>en_US.lang</code> を自動取得できませんでした。<br><strong>ここをクリック</strong>、または <strong>.lang ファイルをドラッグ＆ドロップ</strong> してください。`;
+      }
+    }
+
+    // Read dropped or selected File objects (supports multi-selection)
+    async function handleFiles(fileList) {
+      if (!fileList || fileList.length === 0) return;
+
+      const files = Array.from(fileList);
+      let enFile = files.find(f => f.name.toLowerCase().includes('en_us') || !f.name.toLowerCase().includes('ja_jp'));
+      let jaFile = files.find(f => f.name.toLowerCase().includes('ja_jp'));
+
+      if (!enFile && files.length === 1 && files[0].name.toLowerCase().includes('ja_jp')) {
+        // Only ja_JP provided
+        jaFile = files[0];
+      }
+
+      const readFileAsText = (file) => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.onerror = reject;
+        reader.readAsText(file, 'UTF-8');
+      });
+
+      if (jaFile) {
+        const jaText = await readFileAsText(jaFile);
+        state.jaDict = parseDictionary(jaText);
+      }
+
+      if (enFile) {
+        const enText = await readFileAsText(enFile);
+        state.currentFileName = enFile.name;
+        state.entries = parseLang(enText);
+      }
+
+      attachJaTranslations();
+      const jaStatusText = state.jaDict.size > 0 ? ' + ja_JP 連携' : '';
+      fileStatus.textContent = `${state.currentFileName} (${state.entries.length}項目)${jaStatusText}`;
+      fileStatus.className = 'file-status-badge';
+      dropBanner.classList.remove('visible');
+      applyFilterAndSort();
+    }
+
+    // Helper: test if value matches phoneme (Always strict word boundary)
+    function valueMatchesPhonemeStrictWord(value, phoneme) {
+      const lowerVal = value.toLowerCase();
+      const lowerPhoneme = phoneme.toLowerCase();
+      const safe = lowerPhoneme.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      // Word boundary regex: separated by non-alphanumeric or start/end of string
+      const regex = new RegExp(`(^|[^a-zA-Z0-9_])${safe}([^a-zA-Z0-9_]|$)`, 'i');
+      return regex.test(lowerVal);
+    }
+
+    // Filter and Sort entries
+    function applyFilterAndSort() {
+      const term = state.searchTerm.toLowerCase().trim();
+      const target = state.searchTarget;
+      const category = state.categoryFilter;
+      const phonemes = Array.from(state.selectedPhonemes);
+      const matchAll = state.matchAllPhonemes;
+
+      // Update phoneme badge
+      if (phonemes.length > 0) {
+        selectedPhonemeBadge.style.display = 'inline-block';
+        selectedPhonemeBadge.textContent = `${phonemes.length}個選択中`;
+      } else {
+        selectedPhonemeBadge.style.display = 'none';
+      }
+
+      // 1. Filter
+      let list = state.entries.filter(item => {
+        // Category filter
+        if (category !== 'all') {
+          if (!item.key.startsWith(category)) return false;
+        }
+
+        // Phoneme elements filter on value (Always exact word boundary)
+        if (phonemes.length > 0) {
+          if (matchAll) {
+            const allMatch = phonemes.every(ph => valueMatchesPhonemeStrictWord(item.value, ph));
+            if (!allMatch) return false;
+          } else {
+            const anyMatch = phonemes.some(ph => valueMatchesPhonemeStrictWord(item.value, ph));
+            if (!anyMatch) return false;
+          }
+        }
+
+        // Text search term filter
+        if (!term) return true;
+
+        if (target === 'key') {
+          return item.key.toLowerCase().includes(term);
+        } else if (target === 'value') {
+          return item.value.toLowerCase().includes(term);
+        } else if (target === 'ja') {
+          return item.jaValue && item.jaValue.toLowerCase().includes(term);
+        } else {
+          return item.key.toLowerCase().includes(term) ||
+                 item.value.toLowerCase().includes(term) ||
+                 (item.jaValue && item.jaValue.toLowerCase().includes(term));
+        }
+      });
+
+      // 2. Sort
+      const sortBy = state.sortBy;
+      list.sort((a, b) => {
+        switch (sortBy) {
+          case 'orig_asc':
+            return a.originalIndex - b.originalIndex;
+          case 'key_asc':
+            return a.key.localeCompare(b.key, undefined, { numeric: true, sensitivity: 'base' });
+          case 'key_desc':
+            return b.key.localeCompare(a.key, undefined, { numeric: true, sensitivity: 'base' });
+          case 'val_asc':
+            return a.value.localeCompare(b.value, undefined, { numeric: true });
+          case 'val_desc':
+            return b.value.localeCompare(a.value, undefined, { numeric: true });
+          case 'ja_asc':
+            return (a.jaValue || '').localeCompare(b.jaValue || '', 'ja', { numeric: true });
+          case 'ja_desc':
+            return (b.jaValue || '').localeCompare(a.jaValue || '', 'ja', { numeric: true });
+          case 'len_desc':
+            return b.value.length - a.value.length;
+          case 'len_asc':
+            return a.value.length - b.value.length;
+          default:
+            return 0;
+        }
+      });
+
+      state.filtered = list;
+      state.currentPage = 1;
+      render();
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // Highlight text
+    function highlightSearch(text, term) {
+      const escaped = escapeHtml(text);
+      if (!term) return escaped;
+      const safeTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${safeTerm})`, 'gi');
+      return escaped.replace(regex, '<mark>$1</mark>');
+    }
+
+    // Highlight value with word-boundary phonemes and search term
+    function highlightValue(text, term) {
+      let escaped = escapeHtml(text);
+      
+      // 1. Highlight active phonemes (word-boundary strictly)
+      if (state.selectedPhonemes.size > 0) {
+        state.selectedPhonemes.forEach(ph => {
+          const safe = ph.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const regex = new RegExp(`(^|[^a-zA-Z0-9_])(${safe})(?=[^a-zA-Z0-9_]|$)`, 'gi');
+          escaped = escaped.replace(regex, '$1<mark>$2</mark>');
+        });
+      }
+
+      // 2. Highlight text search term (if not already handled)
+      if (term && state.searchTarget !== 'key' && state.searchTarget !== 'ja') {
+        const safeTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`(${safeTerm})`, 'gi');
+        escaped = escaped.replace(regex, '<mark>$1</mark>');
+      }
+
+      return escaped;
+    }
+
+    // Render table rows & pagination
+    function render() {
+      const total = state.entries.length;
+      const count = state.filtered.length;
+      totalCount.textContent = total.toLocaleString();
+      displayedCount.textContent = count.toLocaleString();
+
+      updateSortHeaders();
+
+      if (count === 0) {
+        tableBody.innerHTML = '';
+        emptyState.style.display = 'block';
+        paginationInfoList.forEach(el => el.textContent = '0 件');
+        paginationButtonsList.forEach(el => el.innerHTML = '');
+        return;
+      }
+
+      emptyState.style.display = 'none';
+
+      let pageSize = state.pageSize;
+      if (pageSize === 'all') {
+        pageSize = count;
+      } else {
+        pageSize = parseInt(pageSize, 10);
+      }
+
+      const totalPages = Math.ceil(count / pageSize) || 1;
+      if (state.currentPage > totalPages) state.currentPage = totalPages;
+      if (state.currentPage < 1) state.currentPage = 1;
+
+      const startIndex = (state.currentPage - 1) * pageSize;
+      const endIndex = Math.min(startIndex + pageSize, count);
+      const pageItems = state.filtered.slice(startIndex, endIndex);
+
+      const term = state.searchTerm.trim();
+
+      const rowsHtml = pageItems.map((item, idx) => {
+        const itemNumber = startIndex + idx + 1;
+        const keyHtml = highlightSearch(item.key, (state.searchTarget === 'value' || state.searchTarget === 'ja') ? '' : term);
+        const valHtml = highlightValue(item.value, term);
+        const jaHtml = item.jaValue
+          ? highlightSearch(item.jaValue, (state.searchTarget === 'key' || state.searchTarget === 'value') ? '' : term)
+          : '<span class="col-ja empty">-</span>';
+
+        return `
+          <tr data-id="${item.id}">
+            <td class="col-idx">${itemNumber}</td>
+            <td class="col-key">
+              <span class="key-text">${keyHtml}</span>
+            </td>
+            <td class="col-val">${valHtml}</td>
+            <td class="col-ja">${jaHtml}</td>
+          </tr>
+        `;
+      }).join('');
+
+      tableBody.innerHTML = rowsHtml;
+
+      const infoText = `${(startIndex + 1).toLocaleString()} - ${endIndex.toLocaleString()} 件目 (全 ${count.toLocaleString()} 件)`;
+      paginationInfoList.forEach(el => el.textContent = infoText);
+      renderPaginationButtons(totalPages);
+    }
+
+    // Render pagination buttons
+    function renderPaginationButtons(totalPages) {
+      if (totalPages <= 1) {
+        paginationButtonsList.forEach(el => el.innerHTML = '');
+        return;
+      }
+
+      const cur = state.currentPage;
+      let html = '';
+
+      html += `<button class="page-btn" ${cur === 1 ? 'disabled' : ''} onclick="goToPage(1)" title="最初">&laquo;</button>`;
+      html += `<button class="page-btn" ${cur === 1 ? 'disabled' : ''} onclick="goToPage(${cur - 1})" title="前へ">&lsaquo;</button>`;
+
+      const maxButtons = 5;
+      let startPage = Math.max(1, cur - Math.floor(maxButtons / 2));
+      let endPage = Math.min(totalPages, startPage + maxButtons - 1);
+
+      if (endPage - startPage + 1 < maxButtons) {
+        startPage = Math.max(1, endPage - maxButtons + 1);
+      }
+
+      for (let p = startPage; p <= endPage; p++) {
+        html += `<button class="page-btn ${p === cur ? 'active' : ''}" onclick="goToPage(${p})">${p}</button>`;
+      }
+
+      html += `<button class="page-btn" ${cur === totalPages ? 'disabled' : ''} onclick="goToPage(${cur + 1})" title="次へ">&rsaquo;</button>`;
+      html += `<button class="page-btn" ${cur === totalPages ? 'disabled' : ''} onclick="goToPage(${totalPages})" title="最後">&raquo;</button>`;
+
+      paginationButtonsList.forEach(el => el.innerHTML = html);
+    }
+
+    function goToPage(p) {
+      state.currentPage = p;
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Update header icons for sorting
+    function updateSortHeaders() {
+      thKey.classList.remove('sort-active');
+      thVal.classList.remove('sort-active');
+      thJa.classList.remove('sort-active');
+      keySortIcon.textContent = '↕';
+      valSortIcon.textContent = '↕';
+      jaSortIcon.textContent = '↕';
+
+      if (state.sortBy === 'key_asc') {
+        thKey.classList.add('sort-active');
+        keySortIcon.textContent = '▲';
+      } else if (state.sortBy === 'key_desc') {
+        thKey.classList.add('sort-active');
+        keySortIcon.textContent = '▼';
+      } else if (state.sortBy === 'val_asc') {
+        thVal.classList.add('sort-active');
+        valSortIcon.textContent = '▲';
+      } else if (state.sortBy === 'val_desc') {
+        thVal.classList.add('sort-active');
+        valSortIcon.textContent = '▼';
+      } else if (state.sortBy === 'ja_asc') {
+        thJa.classList.add('sort-active');
+        jaSortIcon.textContent = '▲';
+      } else if (state.sortBy === 'ja_desc') {
+        thJa.classList.add('sort-active');
+        jaSortIcon.textContent = '▼';
+      }
+    }
+
+    // Event Listeners: Phoneme Grid Click
+    phonemeGrid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.phoneme-btn');
+      if (!btn) return;
+
+      const phoneme = btn.dataset.phoneme;
+      if (state.selectedPhonemes.has(phoneme)) {
+        state.selectedPhonemes.delete(phoneme);
+        btn.classList.remove('active');
+      } else {
+        state.selectedPhonemes.add(phoneme);
+        btn.classList.add('active');
+      }
+      applyFilterAndSort();
+    });
+
+    // Clear Phonemes
+    clearPhonemesBtn.addEventListener('click', () => {
+      state.selectedPhonemes.clear();
+      phonemeGrid.querySelectorAll('.phoneme-btn').forEach(b => b.classList.remove('active'));
+      applyFilterAndSort();
+    });
+
+    // Phoneme options (all match)
+    phonemeMatchAll.addEventListener('change', (e) => {
+      state.matchAllPhonemes = e.target.checked;
+      applyFilterAndSort();
+    });
+
+    // Search input
+    searchInput.addEventListener('input', (e) => {
+      state.searchTerm = e.target.value;
+      clearSearchBtn.style.display = state.searchTerm ? 'block' : 'none';
+      applyFilterAndSort();
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      state.searchTerm = '';
+      clearSearchBtn.style.display = 'none';
+      searchInput.focus();
+      applyFilterAndSort();
+    });
+
+    searchTarget.addEventListener('change', (e) => {
+      state.searchTarget = e.target.value;
+      applyFilterAndSort();
+    });
+
+    sortSelect.addEventListener('change', (e) => {
+      state.sortBy = e.target.value;
+      applyFilterAndSort();
+    });
+
+    pageSizeSelect.addEventListener('change', (e) => {
+      state.pageSize = e.target.value;
+      state.currentPage = 1;
+      render();
+    });
+
+    // Category chips click
+    categoryChips.addEventListener('click', (e) => {
+      const chip = e.target.closest('.chip');
+      if (!chip) return;
+
+      categoryChips.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+
+      state.categoryFilter = chip.dataset.filter;
+      applyFilterAndSort();
+    });
+
+    // Table Header Click for toggle sort
+    thKey.addEventListener('click', () => {
+      state.sortBy = (state.sortBy === 'key_asc') ? 'key_desc' : 'key_asc';
+      sortSelect.value = state.sortBy;
+      applyFilterAndSort();
+    });
+
+    thVal.addEventListener('click', () => {
+      state.sortBy = (state.sortBy === 'val_asc') ? 'val_desc' : 'val_asc';
+      sortSelect.value = state.sortBy;
+      applyFilterAndSort();
+    });
+
+    thJa.addEventListener('click', () => {
+      state.sortBy = (state.sortBy === 'ja_asc') ? 'ja_desc' : 'ja_asc';
+      sortSelect.value = state.sortBy;
+      applyFilterAndSort();
+    });
+
+    // Reload button
+    reloadBtn.addEventListener('click', () => {
+      loadFiles();
+    });
+
+    // Manual file picker (supports selecting en_US.lang, ja_JP.lang, or both)
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files.length > 0) {
+        handleFiles(e.target.files);
+      }
+    });
+
+    // Drag and Drop
+    window.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropBanner.classList.add('visible', 'dragover');
+    });
+
+    window.addEventListener('dragleave', (e) => {
+      if (e.clientX === 0 && e.clientY === 0) {
+        dropBanner.classList.remove('dragover');
+      }
+    });
+
+    window.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropBanner.classList.remove('dragover');
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        handleFiles(e.dataTransfer.files);
+      }
+    });
+
+    dropBanner.addEventListener('click', () => {
+      fileInput.click();
+    });
+
+    // Keyboard shortcut (Ctrl/Cmd + F)
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'f') {
+        e.preventDefault();
+        searchInput.focus();
+        searchInput.select();
+      }
+    });
+
+    // Initial load
+    loadFiles();
+  </script>
+</body>
+</html>
