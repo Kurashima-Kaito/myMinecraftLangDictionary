@@ -23,7 +23,7 @@ tile.wooden_pressure_plate.name=sjan nyaahr hra foeoeny-midho: hra froeoexa
 tile.wooden_pressure_plate.name=sjan nyaahr hra foeoeny-midho: hra froeoexa
 tile.wooden_pressure_plate.name=sjan nyaahr hra foeoeny-midho: hra froeoexa
 
-itemGroup.name.button=hra thoewa
+itemGroup.name.buttons=hra thoewa
 tile.wooden_button.name=sjan nyaahr hra thoewa
 tile.spruce_button.name=sjan oedh hra thoewa
 tile.wooden_button.name=sjan nyaahr hra thoewa
@@ -81,10 +81,10 @@ tile.oak_stairs.name=sjan nyaahr hra fortha
 
 itemGroup.name.slab=hra i
 tile.wooden_slab.oak.name=sjan nyaahr hra i
-tile.spruce_slab.oak.name=sjan oedh hra i
-tile.wooden_slab.oak.name=sjan nyaahr hra i
-tile.wooden_slab.oak.name=sjan nyaahr hra i
-tile.wooden_slab.oak.name=sjan nyaahr hra i
+tile.spruce_slab.name=sjan oedh hra i
+tile.wooden_slab.name=sjan nyaahr hra i
+tile.wooden_slab.name=sjan nyaahr hra i
+tile.wooden_slab.name=sjan nyaahr hra i
 
 itemGroup.name.sign=ran nyiwoe hra foeoeny
 item.sign.name=sjan nyaahr ran nyiwoe hra foeoeny
