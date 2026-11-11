@@ -23,7 +23,7 @@ tile.wooden_pressure_plate.name=sjan nyaahr hra foeoeny-midho: hra froeoexa
 tile.wooden_pressure_plate.name=sjan nyaahr hra foeoeny-midho: hra froeoexa
 tile.wooden_pressure_plate.name=sjan nyaahr hra foeoeny-midho: hra froeoexa
 
-itemGroup.name.buttons=hra thoewa
+itemGroup.name.button=hra thoewa
 tile.wooden_button.name=sjan nyaahr hra thoewa
 tile.spruce_button.name=sjan oedh hra thoewa
 tile.wooden_button.name=sjan nyaahr hra thoewa
@@ -81,10 +81,10 @@ tile.oak_stairs.name=sjan nyaahr hra fortha
 
 itemGroup.name.slab=hra i
 tile.wooden_slab.oak.name=sjan nyaahr hra i
-tile.spruce_slab.name=sjan oedh hra i
-tile.wooden_slab.name=sjan nyaahr hra i
-tile.wooden_slab.name=sjan nyaahr hra i
-tile.wooden_slab.name=sjan nyaahr hra i
+tile.spruce_slab.oak.name=sjan oedh hra i
+tile.wooden_slab.oak.name=sjan nyaahr hra i
+tile.wooden_slab.oak.name=sjan nyaahr hra i
+tile.wooden_slab.oak.name=sjan nyaahr hra i
 
 itemGroup.name.sign=ran nyiwoe hra foeoeny
 item.sign.name=sjan nyaahr ran nyiwoe hra foeoeny
@@ -153,6 +153,103 @@ item.netherite_shovel.name=ran foogxidh ha hooh
 item.netherite_hoe.name=ran foogxidh ha xwa
 item.netherite_spear.name=ran foogxidh ha hruuth-fihr
 
+item.coal.name=ran foo hra xi
+item.charcoal.name=sjan gxu ran foo hra xi
+
+item.sugar.name=hra thora-masjaa
+item.paper.name=hra xanxi
+item.gunpowder.name=ran foo hra thora
+
+item.copper_ingot.name=hra zjuth
+tile.copper_block.name=ran zjuth hra o
+item.netherite_ingot.name=hra foogxidh
+item.netherite_scrap.name=hra foogxidh-nyu
+item.iron_nugget.name=hra gxidh-nyu
+item.iron_ingot.name=hra gxidh
+tile.iron_block.name=ran gxidh hra o
+item.gold_nugget.name=hra gxoor-nyu
+item.gold_ingot.name=hra gxoor
+tile.gold_block.name=ran gxoor hra o
+
+item.bucket.name=ran gxith ha nywon-waha
+item.bucketLava.name=ran gxith ha nywon ran nyi foo hru wima
+item.bucketWater.name=ran gxith ha nywon hru nyi wima
+item.glass_bottle.name=ran gxrath ha hon-waha
+potion.emptyPotion.name=ran gxrath ha hon mu nyi wima
+
+item.bundle=ha nywon
+itemGroup.name.bundles=ha nywon
+item.name_tag.name=ran nyiwoe ha xanxi
+
+item.feather.name=hra oef
+
+entity.armor_stand.name=hra ihmi
+item.armor_stand.name=hra ihmi
+
+#ブロック系
+tile.ice.name=hra thiix
+tile.packed_ice.name=hra thiix-woho
+tile.blue_ice.name=hra thiix-xora
+tile.frosted_ice.name=hra thiix-waha
+
+tile.stone.stone.name=hra xi
+tile.cobblestone.name=hroe xi-nyu
+
+tile.sand.default.name=hra thora
+tile.sand.name=hra thora
+itemGroup.name.sandstone=ran thora hra xi
+tile.sandstone.default.name=ran thora hra xi
+tile.sandstone.name=ran thora hra xi
+tile.gravel.name=ran xi hra thora
+tile.dirt.coarse.name=ran niwa hra o ran nyi xi hru thora
+tile.dirt.default.name=ran niwa hra o
+tile.dirt.name=ran niwa hra o
+tile.grass.name=sjan xaa hra o
+tile.podzol.name=mwan rihaa ran riina sjan xaa hra o
+
+cauldronScreen.header=ran gxith hra hon
+item.cauldron.name=ran gxith hra hon
+tile.cauldron.name=ran gxith hra hon
+
+itemGroup.name.glass=hra gxrath
+tile.glass.name=hra gxrath
+itemGroup.name.glassPane=ガラス板
+tile.glass_pane.name=ガラス板
+
+tile.reeds.name=zja gxu-masjaa
+item.reeds.name=zja gxu-masjaa
+
+tile.fire.name=hra foo
+
+#色沢山ある系
+tile.wool.name=hra oef
+tile.wool.black.name=hra oef-zjun
+tile.wool.blue.name=hra oef-xora
+tile.wool.red.name=hra oef-foo
+tile.wool.white.name=hra oef-hiwi
+tile.wool.yellow.name=hra oef-sjoora
+tile.wool.green.name=hra oef-throeoe
+###水色: 氷の色
+###桃色: 生肉の色
+###茶色: 肉の色
+###黄緑色: サトウキビの色
+###灰色: 石の色
+###薄灰色: 白い石の色
+###橙色: にんじんの色
+###紫色: 夜の色
+###赤紫色: 白い夜の色
+###青緑色: 海の色
+tile.wool.lightBlue.name=ran thiix ran riina hra oef
+tile.wool.pink.name=ran rihaa ran riina hra oef
+tile.wool.brown.name=mwan rihaa ran riina hra oef
+tile.wool.lime.name=sjan gxu-masjaa ran riina hra oef
+tile.wool.orange.name=mwan inywoe ran riina hra oef
+tile.wool.gray.name=ran xi ran riina hra oef
+tile.wool.cyan.name=ran zji ran riina hra oef
+tile.wool.magenta.name=ran oer-hiwi ran riina hra oef
+tile.wool.purple.name=ran oer ran riina hra oef
+tile.wool.silver.name=ran xi-hiwi ran riina hra oef
+
 itemGroup.name.dye=hra nywim
 item.dyed=nywimoridh
 item.dye.black.name=イカスミ
@@ -194,102 +291,298 @@ item.magenta_bundle=ran oer-hiwi ha nywon
 item.purple_bundle=ran oer ha nywon
 item.cyan_bundle=ran zji ha nywon
 
-item.coal.name=ran foo hra xi
-item.charcoal.name=sjan gxu ran foo hra xi
+item.bed.black.name=hra moth-zjun
+item.bed.red.name=hra moth-foo
+item.bed.green.name=hra moth-throeoe
+item.bed.brown.name=mwan rihaa ran riina hra moth
+item.bed.blue.name=hra moth-xora
+item.bed.purple.name=ran oer ran riina hra moth
+item.bed.cyan.name=ran zji ran riina hra moth
+item.bed.silver.name=ran xi-hiwi ran riina hra moth
+item.bed.gray.name=ran xi ran riina hra moth
+item.bed.pink.name=ran rihaa ran riina hra moth
+item.bed.lime.name=sjan gxu-masjaa ran riina hra moth
+item.bed.yellow.name=hra moth-sjoora
+item.bed.lightBlue.name=ran thiix ran riina hra moth
+item.bed.magenta.name=ran oer-hiwi ran riina hra moth
+item.bed.orange.name=mwan inywoe ran riina hra moth
+item.bed.white.name=hra moth-hiwi
 
-item.sugar.name=hra thora-masjaa
-item.paper.name=hra xanxi
-item.gunpowder.name=ran foo hra thora
+tile.shulkerBox.name=シュルカーボックス
+tile.shulkerBoxWhite.name=シュルカーボックス-hiwi
+tile.shulkerBoxOrange.name=mwan inywoe ran riina シュルカーボックス
+tile.shulkerBoxMagenta.name=ran oer-hiwi ran riina シュルカーボックス
+tile.shulkerBoxLightBlue.name=ran thiix ran riina シュルカーボックス
+tile.shulkerBoxYellow.name=シュルカーボックス-sjoora
+tile.shulkerBoxLime.name=sjan gxu-masjaa ran riina シュルカーボックス
+tile.shulkerBoxPink.name=ran rihaa ran riina シュルカーボックス
+tile.shulkerBoxGray.name=ran xi ran riina シュルカーボックス
+tile.shulkerBoxSilver.name=ran xi-hiwi ran riina シュルカーボックス
+tile.shulkerBoxCyan.name=ran zji ran riina シュルカーボックス
+tile.shulkerBoxPurple.name=ran oer ran riina シュルカーボックス
+tile.shulkerBoxBlue.name=シュルカーボックス-xora
+tile.shulkerBoxBrown.name=mwan rihaa ran riina シュルカーボックス
+tile.shulkerBoxGreen.name=シュルカーボックス-throeoe
+tile.shulkerBoxRed.name=シュルカーボックス-foo
+tile.shulkerBoxBlack.name=シュルカーボックス-zjun
 
-item.copper_ingot.name=hra zjuth
-tile.copper_block.name=ran zjuth hra o
-item.netherite_ingot.name=hra foogxidh
-item.netherite_scrap.name=hra foogxidh-nyu
-item.iron_nugget.name=hra gxidh-nyu
-item.iron_ingot.name=hra gxidh
-tile.iron_block.name=ran gxidh hra o
-item.gold_nugget.name=hra gxoor-nyu
-item.gold_ingot.name=hra gxoor
-tile.gold_block.name=ran gxoor hra o
+tile.stained_glass.white.name=hra gxrath-hiwi
+tile.stained_glass.silver.name=ran xi-hiwi ran riina hra gxrath
+tile.stained_glass.gray.name=ran xi ran riina hra gxrath
+tile.stained_glass.black.name=hra gxrath-zjun
+tile.stained_glass.brown.name=mwan rihaa ran riina hra gxrath
+tile.stained_glass.red.name=hra gxrath-foo
+tile.stained_glass.orange.name=mwan inywoe ran riina hra gxrath
+tile.stained_glass.yellow.name=hra gxrath-sjoora
+tile.stained_glass.lime.name=sjan gxu-masjaa ran riina hra gxrath
+tile.stained_glass.green.name=hra gxrath-throeoe
+tile.stained_glass.cyan.name=ran zji ran riina hra gxrath
+tile.stained_glass.light_blue.name=ran thiix ran riina hra gxrath
+tile.stained_glass.blue.name=hra gxrath-xora
+tile.stained_glass.purple.name=ran oer ran riina hra gxrath
+tile.stained_glass.magenta.name=ran oer-hiwi ran riina hra gxrath
+tile.stained_glass.pink.name=ran rihaa ran riina hra gxrath
 
-item.bucket.name=ran gxith ha nywon-waha
-item.bucketLava.name=ran gxith ha nywon ran nyi foo hru wima
-item.bucketWater.name=ran gxith ha nywon hru nyi wima
-item.glass_bottle.name=ran gxrath ha hon-waha
-potion.emptyPotion.name=ran gxrath ha hon mu nyi wima
+tile.stained_glass_pane.white.name=hra gxrath-iia-hiwi
+tile.stained_glass_pane.silver.name=ran xi-hiwi ran riina hra gxrath-iia
+tile.stained_glass_pane.gray.name=ran xi ran riina hra gxrath-iia
+tile.stained_glass_pane.black.name=hra gxrath-iia-zjun
+tile.stained_glass_pane.brown.name=mwan rihaa ran riina hra gxrath-iia
+tile.stained_glass_pane.red.name=hra gxrath-iia-foo
+tile.stained_glass_pane.orange.name=mwan inywoe ran riina hra gxrath-iia
+tile.stained_glass_pane.yellow.name=hra gxrath-iia-sjoora
+tile.stained_glass_pane.lime.name=sjan gxu-masjaa ran riina hra gxrath-iia
+tile.stained_glass_pane.green.name=hra gxrath-iia-throeoe
+tile.stained_glass_pane.cyan.name=ran zji ran riina hra gxrath-iia
+tile.stained_glass_pane.light_blue.name=ran thiix ran riina hra gxrath-iia
+tile.stained_glass_pane.blue.name=hra gxrath-iia-xora
+tile.stained_glass_pane.purple.name=ran oer ran riina hra gxrath-iia
+tile.stained_glass_pane.magenta.name=ran oer-hiwi ran riina hra gxrath-iia
+tile.stained_glass_pane.pink.name=ran rihaa ran riina hra gxrath-iia
 
-item.bundle=ha nywon
-itemGroup.name.bundles=ha nywon
-item.name_tag.name=ran nyiwoe ha xanxi
+tile.hardened_clay.name=hra niwa-foridh
+tile.stained_hardened_clay.name=hra niwa-foridh
+tile.stained_hardened_clay.black.name=hra niwa-foridh-zjun
+tile.stained_hardened_clay.blue.name=hra niwa-foridh-xora
+tile.stained_hardened_clay.brown.name=mwan rihaa ran riina hra niwa-foridh
+tile.stained_hardened_clay.cyan.name=ran zji ran riina hra niwa-foridh
+tile.stained_hardened_clay.gray.name=ran xi ran riina hra niwa-foridh
+tile.stained_hardened_clay.green.name=hra niwa-foridh-throeoe
+tile.stained_hardened_clay.lightBlue.name=ran thiix ran riina hra niwa-foridh
+tile.stained_hardened_clay.lime.name=sjan gxu-masjaa ran riina hra niwa-foridh
+tile.stained_hardened_clay.magenta.name=ran oer-hiwi ran riina hra niwa-foridh
+tile.stained_hardened_clay.orange.name=mwan inywoe ran riina hra niwa-foridh
+tile.stained_hardened_clay.pink.name=ran rihaa ran riina hra niwa-foridh
+tile.stained_hardened_clay.purple.name=ran oer ran riina hra niwa-foridh
+tile.stained_hardened_clay.red.name=hra niwa-foridh-foo
+tile.stained_hardened_clay.silver.name=ran xi-hiwi ran riina hra niwa-foridh
+tile.stained_hardened_clay.white.name=hra niwa-foridh-hiwi
+tile.stained_hardened_clay.yellow.name=hra niwa-foridh-sjoora
 
-item.feather.name=hra oef
+tile.standing_banner.name=hra rifoe
+tile.standing_banner.white.name=hra rifoe-hiwi
+tile.standing_banner.black.name=hra rifoe-zjun
+tile.standing_banner.blue.name=hra rifoe-xora
+tile.standing_banner.brown.name=mwan rihaa ran riina hra rifoe
+tile.standing_banner.cyan.name=ran zji ran riina hra rifoe
+tile.standing_banner.gray.name=ran xi ran riina hra rifoe
+tile.standing_banner.green.name=hra rifoe-throeoe
+tile.standing_banner.lightBlue.name=ran thiix ran riina hra rifoe
+tile.standing_banner.lime.name=sjan gxu-masjaa ran riina hra rifoe
+tile.standing_banner.magenta.name=ran oer-hiwi ran riina hra rifoe
+tile.standing_banner.orange.name=mwan inywoe ran riina hra rifoe
+tile.standing_banner.pink.name=ran rihaa ran riina hra rifoe
+tile.standing_banner.purple.name=ran oer ran riina hra rifoe
+tile.standing_banner.red.name=hra rifoe-foo
+tile.standing_banner.silver.name=ran xi-hiwi ran riina hra rifoe
+tile.standing_banner.yellow.name=hra rifoe-sjoora
 
-entity.armor_stand.name=hra ihmi
-item.armor_stand.name=hra ihmi
+tile.carpet.name=hra iundhan
+tile.carpet.black.name=hra iundhan-zjun
+tile.carpet.blue.name=hra iundhan-xora
+tile.carpet.brown.name=mwan rihaa ran riina hra iundhan
+tile.carpet.cyan.name=ran zji ran riina hra iundhan
+tile.carpet.gray.name=ran xi ran riina hra iundhan
+tile.carpet.green.name=hra iundhan-throeoe
+tile.carpet.lightBlue.name=ran thiix ran riina hra iundhan
+tile.carpet.lime.name=sjan gxu-masjaa ran riina hra iundhan
+tile.carpet.magenta.name=ran oer-hiwi ran riina hra iundhan
+tile.carpet.orange.name=mwan inywoe ran riina hra iundhan
+tile.carpet.pink.name=ran rihaa ran riina hra iundhan
+tile.carpet.purple.name=ran oer ran riina hra iundhan
+tile.carpet.red.name=hra iundhan-foo
+tile.carpet.silver.name=ran xi-hiwi ran riina hra iundhan
+tile.carpet.white.name=hra iundhan-hiwi
+tile.carpet.yellow.name=hra iundhan-sjoora
 
-#ブロック系
-tile.ice.name=hra thiix
-tile.packed_ice.name=hra thiix-woho
-tile.blue_ice.name=hra thiix-xora
-tile.frosted_ice.name=hra thiix-waha
+tile.glazedTerracotta.white.name=hra niwa-foridh-gxrathoridh-hiwi
+tile.glazedTerracotta.orange.name=mwan inywoe ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracotta.magenta.name=ran oer-hiwi ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracotta.light_blue.name=ran thiix ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracotta.yellow.name=hra niwa-foridh-gxrathoridh-sjoora
+tile.glazedTerracotta.lime.name=sjan gxu-masjaa ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracotta.pink.name=ran rihaa ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracotta.gray.name=ran xi ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracotta.silver.name=ran xi-hiwi ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracotta.cyan.name=ran zji ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracotta.purple.name=ran oer ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracotta.blue.name=hra niwa-foridh-gxrathoridh-xora
+tile.glazedTerracotta.brown.name=mwan rihaa ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracotta.green.name=hra niwa-foridh-gxrathoridh-throeoe
+tile.glazedTerracotta.red.name=hra niwa-foridh-gxrathoridh-foo
+tile.glazedTerracotta.black.name=hra niwa-foridh-gxrathoridh-zjun
+tile.glazedTerracottaWhite.name=hra niwa-foridh-gxrathoridh-hiwi
+tile.glazedTerracottaOrange.name=mwan inywoe ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracottaMagenta.name=ran oer-hiwi ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracottaLightBlue.name=ran thiix ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracottaYellow.name=hra niwa-foridh-gxrathoridh-sjoora
+tile.glazedTerracottaLime.name=sjan gxu-masjaa ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracottaPink.name=ran rihaa ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracottaGray.name=ran xi ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracottaSilver.name=ran xi-hiwi ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracottaCyan.name=ran zji ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracottaPurple.name=ran oer ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracottaBlue.name=hra niwa-foridh-gxrathoridh-xora
+tile.glazedTerracottaBrown.name=mwan rihaa ran riina hra niwa-foridh-gxrathoridh
+tile.glazedTerracottaGreen.name=hra niwa-foridh-gxrathoridh-throeoe
+tile.glazedTerracottaRed.name=hra niwa-foridh-gxrathoridh-foo
+tile.glazedTerracottaBlack.name=hra niwa-foridh-gxrathoridh-zjun
 
-tile.stone.stone.name=hra xi
-tile.cobblestone.name=hroe xi-nyun
+tile.concrete.black.name=hroe xi-nyu-xoonridh-zjun
+tile.concrete.red.name=hroe xi-nyu-xoonridh-foo
+tile.concrete.green.name=hroe xi-nyu-xoonridh-throeoe
+tile.concrete.brown.name=mwan rihaa ran riina hroe xi-nyu-xoonridh
+tile.concrete.blue.name=hroe xi-nyu-xoonridh-xora
+tile.concrete.purple.name=ran oer ran riina hroe xi-nyu-xoonridh
+tile.concrete.cyan.name=ran zji ran riina hroe xi-nyu-xoonridh
+tile.concrete.silver.name=ran xi-hiwi ran riina hroe xi-nyu-xoonridh
+tile.concrete.gray.name=ran xi ran riina hroe xi-nyu-xoonridh
+tile.concrete.pink.name=ran rihaa ran riina hroe xi-nyu-xoonridh
+tile.concrete.lime.name=sjan gxu-masjaa ran riina hroe xi-nyu-xoonridh
+tile.concrete.yellow.name=hroe xi-nyu-xoonridh-sjoora
+tile.concrete.lightBlue.name=ran thiix ran riina hroe xi-nyu-xoonridh
+tile.concrete.magenta.name=ran oer-hiwi ran riina hroe xi-nyu-xoonridh
+tile.concrete.orange.name=mwan inywoe ran riina hroe xi-nyu-xoonridh
+tile.concrete.white.name=hroe xi-nyu-xoonridh-hiwi
 
-tile.sand.default.name=hra thora
-tile.sand.name=hra thora
-itemGroup.name.sandstone=ran thora hra xi
-tile.sandstone.default.name=ran thora hra xi
-tile.sandstone.name=ran thora hra xi
-tile.gravel.name=ran xi hra thora
-tile.dirt.coarse.name=ran niwa hra o ran nyi xi hru thora
-tile.dirt.default.name=ran niwa hra o
-tile.dirt.name=ran niwa hra o
-tile.grass.name=sjan xaa hra o
-tile.podzol.name=mwan rihaa ran riina sjan xaa hra o
+tile.concretePowder.black.name=hroe xi-nyu-neixoondh-zjun
+tile.concretePowder.red.name=hroe xi-nyu-neixoondh-foo
+tile.concretePowder.green.name=hroe xi-nyu-neixoondh-throeoe
+tile.concretePowder.brown.name=mwan rihaa ran riina hroe xi-nyu-neixoondh
+tile.concretePowder.blue.name=hroe xi-nyu-neixoondh-xora
+tile.concretePowder.purple.name=ran oer ran riina hroe xi-nyu-neixoondh
+tile.concretePowder.cyan.name=ran zji ran riina hroe xi-nyu-neixoondh
+tile.concretePowder.silver.name=ran xi-hiwi ran riina hroe xi-nyu-neixoondh
+tile.concretePowder.gray.name=ran xi ran riina hroe xi-nyu-neixoondh
+tile.concretePowder.pink.name=ran rihaa ran riina hroe xi-nyu-neixoondh
+tile.concretePowder.lime.name=sjan gxu-masjaa ran riina hroe xi-nyu-neixoondh
+tile.concretePowder.yellow.name=hroe xi-nyu-neixoondh-sjoora
+tile.concretePowder.lightBlue.name=ran thiix ran riina hroe xi-nyu-neixoondh
+tile.concretePowder.magenta.name=ran oer-hiwi ran riina hroe xi-nyu-neixoondh
+tile.concretePowder.orange.name=mwan inywoe ran riina hroe xi-nyu-neixoondh
+tile.concretePowder.white.name=hroe xi-nyu-neixoondh-hiwi
 
-cauldronScreen.header=ran gxith hra hon
-item.cauldron.name=ran gxith hra hon
-tile.cauldron.name=ran gxith hra hon
+tile.candle.name=than wiwi hra xi-foodh
+tile.white_candle.name=than wiwi hra xi-foodh-hiwi
+tile.orange_candle.name=mwan inywoe ran riina than wiwi hra xi-foodh
+tile.magenta_candle.name=ran oer-hiwi ran riina than wiwi hra xi-foodh
+tile.light_blue_candle.name=ran thiix ran riina than wiwi hra xi-foodh
+tile.yellow_candle.name=than wiwi hra xi-foodh-sjoora
+tile.lime_candle.name=sjan gxu-masjaa ran riina than wiwi hra xi-foodh
+tile.pink_candle.name=ran rihaa ran riina than wiwi hra xi-foodh
+tile.gray_candle.name=ran xi ran riina than wiwi hra xi-foodh
+tile.light_gray_candle.name=ran xi-hiwi ran riina than wiwi hra xi-foodh
+tile.cyan_candle.name=ran zji ran riina than wiwi hra xi-foodh
+tile.purple_candle.name=ran oer ran riina than wiwi hra xi-foodh
+tile.blue_candle.name=than wiwi hra xi-foodh-xora
+tile.brown_candle.name=mwan rihaa ran riina than wiwi hra xi-foodh
+tile.green_candle.name=than wiwi hra xi-foodh-throeoe
+tile.red_candle.name=than wiwi hra xi-foodh-foo
+tile.black_candle.name=than wiwi hra xi-foodh-zjun
 
-itemGroup.name.glass=hra gxrath
-tile.glass.name=hra gxrath
-itemGroup.name.glassPane=ガラス板
-tile.glass_pane.name=ガラス板
+entity.cushion.name=hra matho
+item.cushion.black.name=hra matho-zjun
+item.cushion.blue.name=hra matho-xora
+item.cushion.brown.name=mwan rihaa ran riina hra matho
+item.cushion.cyan.name=ran zji ran riina hra matho
+item.cushion.gray.name=ran xi ran riina hra matho
+item.cushion.green.name=hra matho-throeoe
+item.cushion.lightBlue.name=ran thiix ran riina hra matho
+item.cushion.lime.name=sjan gxu-masjaa ran riina hra matho
+item.cushion.magenta.name=ran oer-hiwi ran riina hra matho
+item.cushion.orange.name=mwan inywoe ran riina hra matho
+item.cushion.pink.name=ran rihaa ran riina hra matho
+item.cushion.purple.name=ran oer ran riina hra matho
+item.cushion.red.name=hra matho-foo
+item.cushion.silver.name=ran xi-hiwi ran riina hra matho
+item.cushion.white.name=hra matho-hiwi
+item.cushion.yellow.name=hra matho-sjoora
 
-tile.reeds.name=zja gxu-masjaa
-item.reeds.name=zja gxu-masjaa
+tile.blue_wool_stairs.name=ran oef-xora hroe fortha
+tile.red_wool_stairs.name=ran oef-foo hroe fortha
+tile.white_wool_stairs.name=ran oef-hiwi hroe fortha
+tile.orange_wool_stairs.name=mwan inywoe ran riina ran oef hroe fortha
+tile.magenta_wool_stairs.name=ran oer-hiwi ran riina ran oef hroe fortha
+tile.light_blue_wool_stairs.name=ran thiix ran riina ran oef hroe fortha
+tile.yellow_wool_stairs.name=ran oef-sjoora hroe fortha
+tile.lime_wool_stairs.name=sjan gxu-masjaa ran riina ran oef hroe fortha
+tile.pink_wool_stairs.name=ran rihaa ran riina ran oef hroe fortha
+tile.gray_wool_stairs.name=ran xi ran riina ran oef hroe fortha
+tile.light_gray_wool_stairs.name=ran xi-hiwi ran riina ran oef hroe fortha
+tile.cyan_wool_stairs.name=ran zji ran riina ran oef hroe fortha
+tile.purple_wool_stairs.name=ran oer ran riina ran oef hroe fortha
+tile.green_wool_stairs.name=ran oef-throeoe hroe fortha
+tile.brown_wool_stairs.name=mwan rihaa ran riina ran oef hroe fortha
+tile.black_wool_stairs.name=ran oef-zjun hroe fortha
+tile.white_wool_slab.name=ran oef-hiwi hra i
+tile.light_gray_wool_slab.name=ran xi-hiwi ran riina ran oef hra i
+tile.gray_wool_slab.name=ran xi ran riina ran oef hra i
+tile.black_wool_slab.name=ran oef-zjun hra i
+tile.brown_wool_slab.name=mwan rihaa ran riina ran oef hra i
+tile.red_wool_slab.name=ran oef-foo hra i
+tile.orange_wool_slab.name=mwan inywoe ran riina ran oef hra i
+tile.yellow_wool_slab.name=ran oef-sjoora hra i
+tile.lime_wool_slab.name=sjan gxu-masjaa ran riina ran oef hra i
+tile.green_wool_slab.name=ran oef-throeoe hra i
+tile.cyan_wool_slab.name=ran zji ran riina ran oef hra i
+tile.light_blue_wool_slab.name=ran thiix ran riina ran oef hra i
+tile.blue_wool_slab.name=ran oef-xora hra i
+tile.purple_wool_slab.name=ran oer ran riina ran oef hra i
+tile.magenta_wool_slab.name=ran oer-hiwi ran riina ran oef hra i
+tile.pink_wool_slab.name=ran rihaa ran riina ran oef hra i
 
-tile.fire.name=hra foo
-
-tile.wool.name=hra oef
-tile.wool.black.name=hra oef-zjun
-tile.wool.blue.name=hra oef-xora
-tile.wool.red.name=hra oef-foo
-tile.wool.white.name=hra oef-hiwi
-tile.wool.yellow.name=hra oef-sjoora
-tile.wool.green.name=hra oef-throeoe
-
-###水色: 氷の色
-###桃色: 生肉の色
-###茶色: 肉の色
-###黄緑色: サトウキビの色
-###灰色: 石の色
-###薄灰色: 白い石の色
-###橙色: にんじんの色
-###紫色: 夜の色
-###赤紫色: 白い夜の色
-###青緑色: 海の色
-tile.wool.lightBlue.name=ran thiix ran riina hra oef
-tile.wool.pink.name=ran rihaa ran riina hra oef
-tile.wool.brown.name=mwan rihaa ran riina hra oef
-tile.wool.lime.name=sjan gxu-masjaa ran riina hra oef
-tile.wool.orange.name=mwan inywoe ran riina hra oef
-tile.wool.gray.name=ran xi ran riina hra oef
-tile.wool.cyan.name=ran zji ran riina hra oef
-tile.wool.magenta.name=ran oer-hiwi ran riina hra oef
-tile.wool.purple.name=ran oer ran riina hra oef
-tile.wool.silver.name=ran xi-hiwi ran riina hra oef
+tile.yellow_concrete_stairs.name=roen xi-nyu-xoonridh-sjoora hroe fortha
+tile.white_concrete_stairs.name=roen xi-nyu-xoonridh-hiwi hroe fortha
+tile.light_gray_concrete_stairs.name=ran xi-hiwi ran riina roen xi-nyu-xoonridh hroe fortha
+tile.gray_concrete_stairs.name=ran xi ran riina roen xi-nyu-xoonridh hroe fortha
+tile.black_concrete_stairs.name=roen xi-nyu-xoonridh-zjun hroe fortha
+tile.brown_concrete_stairs.name=mwan rihaa ran riina roen xi-nyu-xoonridh hroe fortha
+tile.red_concrete_stairs.name=roen xi-nyu-xoonridh-foo hroe fortha
+tile.orange_concrete_stairs.name=mwan inywoe ran riina roen xi-nyu-xoonridh hroe fortha
+tile.lime_concrete_stairs.name=sjan gxu-masjaa ran riina roen xi-nyu-xoonridh hroe fortha
+tile.green_concrete_stairs.name=roen xi-nyu-xoonridh-throeoe hroe fortha
+tile.cyan_concrete_stairs.name=ran zji ran riina roen xi-nyu-xoonridh hroe fortha
+tile.light_blue_concrete_stairs.name=ran thiix ran riina roen xi-nyu-xoonridh hroe fortha
+tile.blue_concrete_stairs.name=roen xi-nyu-xoonridh-xora hroe fortha
+tile.purple_concrete_stairs.name=ran oer ran riina roen xi-nyu-xoonridh hroe fortha
+tile.magenta_concrete_stairs.name=ran oer-hiwi ran riina roen xi-nyu-xoonridh hroe fortha
+tile.pink_concrete_stairs.name=ran rihaa ran riina roen xi-nyu-xoonridh hroe fortha
+tile.white_concrete_slab.name=roen xi-nyu-xoonridh-hiwi hra i
+tile.light_gray_concrete_slab.name=ran xi-hiwi ran riina roen xi-nyu-xoonridh hra i
+tile.gray_concrete_slab.name=ran xi ran riina roen xi-nyu-xoonridh hra i
+tile.black_concrete_slab.name=roen xi-nyu-xoonridh-zjun hra i
+tile.brown_concrete_slab.name=mwan rihaa ran riina roen xi-nyu-xoonridh hra i
+tile.red_concrete_slab.name=roen xi-nyu-xoonridh-foo hra i
+tile.orange_concrete_slab.name=mwan inywoe ran riina roen xi-nyu-xoonridh hra i
+tile.yellow_concrete_slab.name=roen xi-nyu-xoonridh-sjoora hra i
+tile.lime_concrete_slab.name=sjan gxu-masjaa ran riina roen xi-nyu-xoonridh hra i
+tile.green_concrete_slab.name=roen xi-nyu-xoonridh-throeoe hra i
+tile.cyan_concrete_slab.name=ran zji ran riina roen xi-nyu-xoonridh hra i
+tile.light_blue_concrete_slab.name=ran thiix ran riina roen xi-nyu-xoonridh hra i
+tile.blue_concrete_slab.name=roen xi-nyu-xoonridh-xora hra i
+tile.purple_concrete_slab.name=ran oer ran riina roen xi-nyu-xoonridh hra i
+tile.magenta_concrete_slab.name=ran oer-hiwi ran riina roen xi-nyu-xoonridh hra i
+tile.pink_concrete_slab.name=ran rihaa ran riina roen xi-nyu-xoonridh hra i
 
 #機能ブロック系
 container.crafting=hra foeoeny-gxamdhoo
